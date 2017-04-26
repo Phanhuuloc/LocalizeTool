@@ -69,16 +69,10 @@ public class MSExcelParse {
                             while (cellIterator.hasNext()) {
                                 Cell currentCell = cellIterator.next();
                                 String key = currentCell.toString();
-//                                    System.out.println(key);
-//                                    if (key.equals("Folder Permissions")) {
-//                                        System.out.println("double " + key);
-//                                    }
+
                                 if (callback.isMatchCell(FileUtils.cleanString(key))) {
                                     IntStream.range(0, LanguageColumn.TH.ordinal())
                                             .forEach(i -> {
-//                                                    if(key.equals("Orders")){
-//                                                        System.out.println("fffff");
-//                                                    }
                                                 if (cellIterator.hasNext()) {
                                                     Cell cell = cellIterator.next();
                                                     if (i == LanguageColumn.TH.ordinal() - 1) {
@@ -109,13 +103,9 @@ public class MSExcelParse {
 
         for (int i = 0; i < sheetsNum; i++) {
             String sName = workbook.getSheetName(i);
-//            LOGGER.info(String.format("SHEET---%s", sName));
-
             if (StringUtils.isBlank(sheetName) || sheetName.equals(sName)) {
-//                LOGGER.info(String.format("\t------> Process sheet---%s", sName));
                 Sheet datatypeSheet = workbook.getSheetAt(i);
                 Iterator<Row> iterator = datatypeSheet.iterator();
-
                 while (iterator.hasNext()) {
                     Row currentRow = iterator.next();
                     Iterator<Cell> cellIterator = currentRow.iterator();
@@ -133,7 +123,7 @@ public class MSExcelParse {
                                     .forEach(value -> {
                                         if (cellIterator.hasNext()) {
                                             Cell cell = cellIterator.next();
-                                            System.out.println((char) 27 + "[35m\n" +
+                                            System.out.println((char) 27 + "[35m" +
                                                     "---replace text---> " + cell.toString());
                                         }
                                     });
