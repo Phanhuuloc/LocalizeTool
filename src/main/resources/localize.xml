@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <localize>
+        <file dir="F:\Proj\LocalizeTool\src\main\resources\" in="ApplicationResource.properties" out="ApplicationResource_th.properties"/>
+        <steps>
+            <step e-file="xlsx\no1.xlsx" e-sheet=""/>
+            <step e-file="xlsx\No1.WMS.xls" e-sheet=""/>
+            <step e-file="xlsx\no4.xlsx" e-sheet=""/>
+            <step e-file="xlsx\no4.xlsx" e-sheet="Download Quota" pos="3"/>
+        </steps>
+    </localize>
+</configuration>
