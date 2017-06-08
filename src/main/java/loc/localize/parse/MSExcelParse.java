@@ -26,16 +26,6 @@ public class MSExcelParse {
     private final String excelResourceFile;
     private final String sheetName;
 
-    public interface PoiParseCallback {
-        boolean isMatchCell(String s);
-
-        void doUpdate(String key, String cellValue);
-    }
-
-    public interface PoiFinderCallback {
-        void checkCell(String s);
-    }
-
     public MSExcelParse(String excelResourceFile, String sheetName) {
         this.excelResourceFile = excelResourceFile;
         this.sheetName = sheetName;
@@ -119,7 +109,7 @@ public class MSExcelParse {
                                     "---find--------------" + key + "\n" +
                                     "---detect sheet------" + sName + "\n" +
                                     "---of file-----------" + excelResourceFile);
-                            IntStream.range(0, LanguageColumn.TH.ordinal() + 1)
+                            IntStream.range(0, LanguageColumn.TH.ordinal() + 2)
                                     .forEach(value -> {
                                         if (cellIterator.hasNext()) {
                                             Cell cell = cellIterator.next();
@@ -134,6 +124,16 @@ public class MSExcelParse {
             }
         }
         return findOutSheet;
+    }
+
+    public interface PoiParseCallback {
+        boolean isMatchCell(String s);
+
+        void doUpdate(String key, String cellValue);
+    }
+
+    public interface PoiFinderCallback {
+        void checkCell(String s);
     }
 
 }
