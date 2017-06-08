@@ -50,7 +50,8 @@ public class FindingApp {
     public void findOnBulk(String text) throws IOException {
         List<String> files = FileUtils.getResourceFiles("xlsx");
         for (String file : files) {
-            if (finderOnSingle(text, file)) break;
+//            if (finderOnSingle(text, file)) break;
+            finderOnSingle(text, file);
         }
     }
 
